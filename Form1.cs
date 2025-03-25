@@ -20,6 +20,7 @@ namespace H_P_II_Clase8_AccesoHardware_SO
         public Form1()
         {
             InitializeComponent();
+            ApplyStyles();
         }
 
         public string ObtenerNumeroSerie()
@@ -197,6 +198,40 @@ namespace H_P_II_Clase8_AccesoHardware_SO
                 MatarProceso(nombreProceso);
                 ltbProcesos.Items.Remove(nombreProceso); // Eliminar de la lista
             }
+        }
+
+        private void ApplyStyles()
+        {
+            // Configuración general del formulario
+            this.BackColor = Color.FromArgb(45, 45, 48); // Color de fondo oscuro
+            this.ForeColor = Color.White;
+            this.Text = "Gestión de Hardware y SO";
+            this.Font = new Font("Arial", 10, FontStyle.Regular);
+
+            // Aplicar estilos a los botones
+            Button[] buttons = { btnNumeroSerie, btnDiscos, btnProcesador, btnMac, btnCrearKey, btnLeerKey, btnEliminarKey, btnCrearProcesos, btnMatarProceso };
+            foreach (var btn in buttons)
+            {
+                btn.BackColor = Color.FromArgb(28, 151, 234);
+                btn.ForeColor = Color.White;
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.Font = new Font("Arial", 10, FontStyle.Bold);
+                btn.FlatAppearance.BorderSize = 0;
+            }
+
+            // Aplicar estilos a etiquetas
+            Label[] labels = { lblNumeroSerie, lblDiscos, lblProcesador, lblRam, lblNic, lblMac, lblLeerClave };
+            foreach (var lbl in labels)
+            {
+                lbl.ForeColor = Color.LightGray;
+                lbl.Font = new Font("Arial", 10, FontStyle.Bold);
+            }
+
+            // Estilos para ListBox
+            ltbProcesos.BackColor = Color.FromArgb(60, 60, 60);
+            ltbProcesos.ForeColor = Color.White;
+            ltbProcesos.BorderStyle = BorderStyle.FixedSingle;
+            ltbProcesos.Font = new Font("Arial", 10, FontStyle.Regular);
         }
     }
 }
