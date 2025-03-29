@@ -28,236 +28,261 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnNumeroSerie = new System.Windows.Forms.Button();
             this.lblNumeroSerie = new System.Windows.Forms.Label();
-            this.lblDiscos = new System.Windows.Forms.Label();
-            this.btnDiscos = new System.Windows.Forms.Button();
-            this.lblProcesador = new System.Windows.Forms.Label();
-            this.btnProcesador = new System.Windows.Forms.Button();
-            this.lblRam = new System.Windows.Forms.Label();
-            this.lblNic = new System.Windows.Forms.Label();
-            this.btnMac = new System.Windows.Forms.Button();
-            this.lblMac = new System.Windows.Forms.Label();
             this.btnCrearKey = new System.Windows.Forms.Button();
             this.btnLeerKey = new System.Windows.Forms.Button();
             this.btnEliminarKey = new System.Windows.Forms.Button();
-            this.lblLeerClave = new System.Windows.Forms.Label();
             this.ltbProcesos = new System.Windows.Forms.ListBox();
             this.btnCrearProcesos = new System.Windows.Forms.Button();
             this.btnMatarProceso = new System.Windows.Forms.Button();
+            this.tbcPrincipal = new System.Windows.Forms.TabControl();
+            this.tbpIformacion = new System.Windows.Forms.TabPage();
+            this.tbpRegistro = new System.Windows.Forms.TabPage();
+            this.tbpGestion = new System.Windows.Forms.TabPage();
+            this.btnObtenerInfoSistema = new System.Windows.Forms.Button();
+            this.lblInfoSistema = new System.Windows.Forms.Label();
+            this.lblRegistroSistema = new System.Windows.Forms.Label();
+            this.lblInfoProcesos = new System.Windows.Forms.Label();
+            this.tbcPrincipal.SuspendLayout();
+            this.tbpIformacion.SuspendLayout();
+            this.tbpRegistro.SuspendLayout();
+            this.tbpGestion.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnNumeroSerie
-            // 
-            this.btnNumeroSerie.Location = new System.Drawing.Point(79, 34);
-            this.btnNumeroSerie.Name = "btnNumeroSerie";
-            this.btnNumeroSerie.Size = new System.Drawing.Size(159, 23);
-            this.btnNumeroSerie.TabIndex = 0;
-            this.btnNumeroSerie.Text = "Leer Numero Serie";
-            this.btnNumeroSerie.UseVisualStyleBackColor = true;
-            this.btnNumeroSerie.Click += new System.EventHandler(this.btnNumeroSerie_Click);
             // 
             // lblNumeroSerie
             // 
             this.lblNumeroSerie.AutoSize = true;
-            this.lblNumeroSerie.Location = new System.Drawing.Point(130, 60);
+            this.lblNumeroSerie.Location = new System.Drawing.Point(821, 115);
+            this.lblNumeroSerie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumeroSerie.Name = "lblNumeroSerie";
-            this.lblNumeroSerie.Size = new System.Drawing.Size(44, 16);
+            this.lblNumeroSerie.Size = new System.Drawing.Size(0, 23);
             this.lblNumeroSerie.TabIndex = 1;
-            this.lblNumeroSerie.Text = "label1";
-            // 
-            // lblDiscos
-            // 
-            this.lblDiscos.AutoSize = true;
-            this.lblDiscos.Location = new System.Drawing.Point(550, 87);
-            this.lblDiscos.Name = "lblDiscos";
-            this.lblDiscos.Size = new System.Drawing.Size(44, 16);
-            this.lblDiscos.TabIndex = 3;
-            this.lblDiscos.Text = "label1";
-            // 
-            // btnDiscos
-            // 
-            this.btnDiscos.Location = new System.Drawing.Point(453, 34);
-            this.btnDiscos.Name = "btnDiscos";
-            this.btnDiscos.Size = new System.Drawing.Size(203, 23);
-            this.btnDiscos.TabIndex = 2;
-            this.btnDiscos.Text = "Obtener unidades de disco";
-            this.btnDiscos.UseVisualStyleBackColor = true;
-            this.btnDiscos.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // lblProcesador
-            // 
-            this.lblProcesador.AutoSize = true;
-            this.lblProcesador.Location = new System.Drawing.Point(130, 166);
-            this.lblProcesador.Name = "lblProcesador";
-            this.lblProcesador.Size = new System.Drawing.Size(44, 16);
-            this.lblProcesador.TabIndex = 5;
-            this.lblProcesador.Text = "label1";
-            // 
-            // btnProcesador
-            // 
-            this.btnProcesador.Location = new System.Drawing.Point(41, 129);
-            this.btnProcesador.Name = "btnProcesador";
-            this.btnProcesador.Size = new System.Drawing.Size(254, 23);
-            this.btnProcesador.TabIndex = 4;
-            this.btnProcesador.Text = "Obtener Informacion Sistema";
-            this.btnProcesador.UseVisualStyleBackColor = true;
-            this.btnProcesador.Click += new System.EventHandler(this.btnProcesador_Click);
-            // 
-            // lblRam
-            // 
-            this.lblRam.AutoSize = true;
-            this.lblRam.Location = new System.Drawing.Point(130, 206);
-            this.lblRam.Name = "lblRam";
-            this.lblRam.Size = new System.Drawing.Size(44, 16);
-            this.lblRam.TabIndex = 7;
-            this.lblRam.Text = "label1";
-            // 
-            // lblNic
-            // 
-            this.lblNic.AutoSize = true;
-            this.lblNic.Location = new System.Drawing.Point(130, 257);
-            this.lblNic.Name = "lblNic";
-            this.lblNic.Size = new System.Drawing.Size(44, 16);
-            this.lblNic.TabIndex = 8;
-            this.lblNic.Text = "label1";
-            // 
-            // btnMac
-            // 
-            this.btnMac.Location = new System.Drawing.Point(427, 149);
-            this.btnMac.Name = "btnMac";
-            this.btnMac.Size = new System.Drawing.Size(254, 23);
-            this.btnMac.TabIndex = 9;
-            this.btnMac.Text = "Obtener Mac";
-            this.btnMac.UseVisualStyleBackColor = true;
-            this.btnMac.Click += new System.EventHandler(this.btnMac_Click);
-            // 
-            // lblMac
-            // 
-            this.lblMac.AutoSize = true;
-            this.lblMac.Location = new System.Drawing.Point(539, 188);
-            this.lblMac.Name = "lblMac";
-            this.lblMac.Size = new System.Drawing.Size(44, 16);
-            this.lblMac.TabIndex = 10;
-            this.lblMac.Text = "label1";
             // 
             // btnCrearKey
             // 
-            this.btnCrearKey.Location = new System.Drawing.Point(99, 327);
+            this.btnCrearKey.BackColor = System.Drawing.Color.Green;
+            this.btnCrearKey.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnCrearKey.FlatAppearance.BorderSize = 0;
+            this.btnCrearKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrearKey.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearKey.ForeColor = System.Drawing.Color.White;
+            this.btnCrearKey.Location = new System.Drawing.Point(20, 80);
+            this.btnCrearKey.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCrearKey.Name = "btnCrearKey";
-            this.btnCrearKey.Size = new System.Drawing.Size(139, 23);
+            this.btnCrearKey.Size = new System.Drawing.Size(120, 40);
             this.btnCrearKey.TabIndex = 11;
             this.btnCrearKey.Text = "Crear Clave";
-            this.btnCrearKey.UseVisualStyleBackColor = true;
+            this.btnCrearKey.UseVisualStyleBackColor = false;
             this.btnCrearKey.Click += new System.EventHandler(this.btnCrearKey_Click);
             // 
             // btnLeerKey
             // 
-            this.btnLeerKey.Location = new System.Drawing.Point(295, 327);
+            this.btnLeerKey.BackColor = System.Drawing.Color.Orange;
+            this.btnLeerKey.FlatAppearance.BorderSize = 0;
+            this.btnLeerKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeerKey.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLeerKey.ForeColor = System.Drawing.Color.White;
+            this.btnLeerKey.Location = new System.Drawing.Point(151, 80);
+            this.btnLeerKey.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLeerKey.Name = "btnLeerKey";
-            this.btnLeerKey.Size = new System.Drawing.Size(139, 23);
+            this.btnLeerKey.Size = new System.Drawing.Size(120, 40);
             this.btnLeerKey.TabIndex = 12;
             this.btnLeerKey.Text = "Leer Clave";
-            this.btnLeerKey.UseVisualStyleBackColor = true;
+            this.btnLeerKey.UseVisualStyleBackColor = false;
             this.btnLeerKey.Click += new System.EventHandler(this.btnLeerKey_Click);
             // 
             // btnEliminarKey
             // 
-            this.btnEliminarKey.Location = new System.Drawing.Point(503, 327);
+            this.btnEliminarKey.BackColor = System.Drawing.Color.Red;
+            this.btnEliminarKey.FlatAppearance.BorderSize = 0;
+            this.btnEliminarKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarKey.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarKey.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarKey.Location = new System.Drawing.Point(280, 80);
+            this.btnEliminarKey.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminarKey.Name = "btnEliminarKey";
-            this.btnEliminarKey.Size = new System.Drawing.Size(139, 23);
+            this.btnEliminarKey.Size = new System.Drawing.Size(120, 40);
             this.btnEliminarKey.TabIndex = 13;
             this.btnEliminarKey.Text = "Eliminar Clave";
-            this.btnEliminarKey.UseVisualStyleBackColor = true;
+            this.btnEliminarKey.UseVisualStyleBackColor = false;
             this.btnEliminarKey.Click += new System.EventHandler(this.btnEliminarKey_Click);
-            // 
-            // lblLeerClave
-            // 
-            this.lblLeerClave.AutoSize = true;
-            this.lblLeerClave.Location = new System.Drawing.Point(346, 366);
-            this.lblLeerClave.Name = "lblLeerClave";
-            this.lblLeerClave.Size = new System.Drawing.Size(44, 16);
-            this.lblLeerClave.TabIndex = 14;
-            this.lblLeerClave.Text = "label1";
             // 
             // ltbProcesos
             // 
             this.ltbProcesos.FormattingEnabled = true;
-            this.ltbProcesos.ItemHeight = 16;
-            this.ltbProcesos.Location = new System.Drawing.Point(835, 68);
+            this.ltbProcesos.ItemHeight = 23;
+            this.ltbProcesos.Location = new System.Drawing.Point(20, 60);
+            this.ltbProcesos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ltbProcesos.Name = "ltbProcesos";
-            this.ltbProcesos.Size = new System.Drawing.Size(120, 84);
+            this.ltbProcesos.Size = new System.Drawing.Size(400, 188);
             this.ltbProcesos.TabIndex = 15;
             // 
             // btnCrearProcesos
             // 
-            this.btnCrearProcesos.Location = new System.Drawing.Point(717, 327);
+            this.btnCrearProcesos.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCrearProcesos.FlatAppearance.BorderSize = 0;
+            this.btnCrearProcesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrearProcesos.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearProcesos.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCrearProcesos.Location = new System.Drawing.Point(20, 280);
+            this.btnCrearProcesos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCrearProcesos.Name = "btnCrearProcesos";
-            this.btnCrearProcesos.Size = new System.Drawing.Size(139, 23);
+            this.btnCrearProcesos.Size = new System.Drawing.Size(180, 40);
             this.btnCrearProcesos.TabIndex = 16;
             this.btnCrearProcesos.Text = "Obtener Procesos";
-            this.btnCrearProcesos.UseVisualStyleBackColor = true;
+            this.btnCrearProcesos.UseVisualStyleBackColor = false;
             this.btnCrearProcesos.Click += new System.EventHandler(this.btnCrearProcesos_Click);
             // 
             // btnMatarProceso
             // 
-            this.btnMatarProceso.Location = new System.Drawing.Point(911, 327);
+            this.btnMatarProceso.BackColor = System.Drawing.Color.Red;
+            this.btnMatarProceso.FlatAppearance.BorderSize = 0;
+            this.btnMatarProceso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMatarProceso.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMatarProceso.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnMatarProceso.Location = new System.Drawing.Point(220, 280);
+            this.btnMatarProceso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMatarProceso.Name = "btnMatarProceso";
-            this.btnMatarProceso.Size = new System.Drawing.Size(139, 23);
+            this.btnMatarProceso.Size = new System.Drawing.Size(180, 40);
             this.btnMatarProceso.TabIndex = 17;
             this.btnMatarProceso.Text = "Matar Procesos";
-            this.btnMatarProceso.UseVisualStyleBackColor = true;
+            this.btnMatarProceso.UseVisualStyleBackColor = false;
             this.btnMatarProceso.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // tbcPrincipal
+            // 
+            this.tbcPrincipal.Controls.Add(this.tbpIformacion);
+            this.tbcPrincipal.Controls.Add(this.tbpRegistro);
+            this.tbcPrincipal.Controls.Add(this.tbpGestion);
+            this.tbcPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbcPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.tbcPrincipal.Name = "tbcPrincipal";
+            this.tbcPrincipal.SelectedIndex = 0;
+            this.tbcPrincipal.Size = new System.Drawing.Size(982, 553);
+            this.tbcPrincipal.TabIndex = 18;
+            // 
+            // tbpIformacion
+            // 
+            this.tbpIformacion.BackColor = System.Drawing.Color.LightGray;
+            this.tbpIformacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbpIformacion.Controls.Add(this.lblInfoSistema);
+            this.tbpIformacion.Controls.Add(this.btnObtenerInfoSistema);
+            this.tbpIformacion.Location = new System.Drawing.Point(4, 32);
+            this.tbpIformacion.Name = "tbpIformacion";
+            this.tbpIformacion.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpIformacion.Size = new System.Drawing.Size(974, 517);
+            this.tbpIformacion.TabIndex = 0;
+            this.tbpIformacion.Text = "Información del Sistema";
+            // 
+            // tbpRegistro
+            // 
+            this.tbpRegistro.BackColor = System.Drawing.Color.LightGray;
+            this.tbpRegistro.Controls.Add(this.lblRegistroSistema);
+            this.tbpRegistro.Controls.Add(this.btnCrearKey);
+            this.tbpRegistro.Controls.Add(this.btnLeerKey);
+            this.tbpRegistro.Controls.Add(this.btnEliminarKey);
+            this.tbpRegistro.Location = new System.Drawing.Point(4, 32);
+            this.tbpRegistro.Name = "tbpRegistro";
+            this.tbpRegistro.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpRegistro.Size = new System.Drawing.Size(974, 517);
+            this.tbpRegistro.TabIndex = 1;
+            this.tbpRegistro.Text = "Registro del Sistema";
+            // 
+            // tbpGestion
+            // 
+            this.tbpGestion.BackColor = System.Drawing.Color.LightGray;
+            this.tbpGestion.Controls.Add(this.ltbProcesos);
+            this.tbpGestion.Controls.Add(this.lblInfoProcesos);
+            this.tbpGestion.Controls.Add(this.btnMatarProceso);
+            this.tbpGestion.Controls.Add(this.btnCrearProcesos);
+            this.tbpGestion.Location = new System.Drawing.Point(4, 32);
+            this.tbpGestion.Name = "tbpGestion";
+            this.tbpGestion.Size = new System.Drawing.Size(974, 517);
+            this.tbpGestion.TabIndex = 2;
+            this.tbpGestion.Text = "Gestión de Procesos";
+            // 
+            // btnObtenerInfoSistema
+            // 
+            this.btnObtenerInfoSistema.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnObtenerInfoSistema.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnObtenerInfoSistema.FlatAppearance.BorderSize = 0;
+            this.btnObtenerInfoSistema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnObtenerInfoSistema.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnObtenerInfoSistema.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnObtenerInfoSistema.Location = new System.Drawing.Point(24, 161);
+            this.btnObtenerInfoSistema.Name = "btnObtenerInfoSistema";
+            this.btnObtenerInfoSistema.Size = new System.Drawing.Size(200, 40);
+            this.btnObtenerInfoSistema.TabIndex = 0;
+            this.btnObtenerInfoSistema.Text = "Obtener Información";
+            this.btnObtenerInfoSistema.UseVisualStyleBackColor = false;
+            this.btnObtenerInfoSistema.Click += new System.EventHandler(this.btnObtenerInfoSistema_Click);
+            // 
+            // lblInfoSistema
+            // 
+            this.lblInfoSistema.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblInfoSistema.Location = new System.Drawing.Point(20, 20);
+            this.lblInfoSistema.Name = "lblInfoSistema";
+            this.lblInfoSistema.Size = new System.Drawing.Size(400, 120);
+            this.lblInfoSistema.TabIndex = 1;
+            this.lblInfoSistema.Text = "Aquí se mostrará la información del sistema...";
+            // 
+            // lblRegistroSistema
+            // 
+            this.lblRegistroSistema.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRegistroSistema.Location = new System.Drawing.Point(20, 20);
+            this.lblRegistroSistema.Name = "lblRegistroSistema";
+            this.lblRegistroSistema.Size = new System.Drawing.Size(400, 50);
+            this.lblRegistroSistema.TabIndex = 0;
+            this.lblRegistroSistema.Text = "Clave del registro aparecerá aquí...";
+            // 
+            // lblInfoProcesos
+            // 
+            this.lblInfoProcesos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblInfoProcesos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfoProcesos.Location = new System.Drawing.Point(20, 20);
+            this.lblInfoProcesos.Name = "lblInfoProcesos";
+            this.lblInfoProcesos.Size = new System.Drawing.Size(400, 30);
+            this.lblInfoProcesos.TabIndex = 18;
+            this.lblInfoProcesos.Text = "Procesos activos aparecerán aquí...";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 450);
-            this.Controls.Add(this.btnMatarProceso);
-            this.Controls.Add(this.btnCrearProcesos);
-            this.Controls.Add(this.ltbProcesos);
-            this.Controls.Add(this.lblLeerClave);
-            this.Controls.Add(this.btnEliminarKey);
-            this.Controls.Add(this.btnLeerKey);
-            this.Controls.Add(this.btnCrearKey);
-            this.Controls.Add(this.lblMac);
-            this.Controls.Add(this.btnMac);
-            this.Controls.Add(this.lblNic);
-            this.Controls.Add(this.lblRam);
-            this.Controls.Add(this.lblProcesador);
-            this.Controls.Add(this.btnProcesador);
-            this.Controls.Add(this.lblDiscos);
-            this.Controls.Add(this.btnDiscos);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(982, 553);
             this.Controls.Add(this.lblNumeroSerie);
-            this.Controls.Add(this.btnNumeroSerie);
+            this.Controls.Add(this.tbcPrincipal);
+            this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.tbcPrincipal.ResumeLayout(false);
+            this.tbpIformacion.ResumeLayout(false);
+            this.tbpRegistro.ResumeLayout(false);
+            this.tbpGestion.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnNumeroSerie;
         private System.Windows.Forms.Label lblNumeroSerie;
-        private System.Windows.Forms.Label lblDiscos;
-        private System.Windows.Forms.Button btnDiscos;
-        private System.Windows.Forms.Label lblProcesador;
-        private System.Windows.Forms.Button btnProcesador;
-        private System.Windows.Forms.Label lblRam;
-        private System.Windows.Forms.Label lblNic;
-        private System.Windows.Forms.Button btnMac;
-        private System.Windows.Forms.Label lblMac;
         private System.Windows.Forms.Button btnCrearKey;
         private System.Windows.Forms.Button btnLeerKey;
         private System.Windows.Forms.Button btnEliminarKey;
-        private System.Windows.Forms.Label lblLeerClave;
         private System.Windows.Forms.ListBox ltbProcesos;
         private System.Windows.Forms.Button btnCrearProcesos;
         private System.Windows.Forms.Button btnMatarProceso;
+        private System.Windows.Forms.TabControl tbcPrincipal;
+        private System.Windows.Forms.TabPage tbpIformacion;
+        private System.Windows.Forms.TabPage tbpRegistro;
+        private System.Windows.Forms.TabPage tbpGestion;
+        private System.Windows.Forms.Label lblInfoSistema;
+        private System.Windows.Forms.Button btnObtenerInfoSistema;
+        private System.Windows.Forms.Label lblRegistroSistema;
+        private System.Windows.Forms.Label lblInfoProcesos;
     }
 }
 

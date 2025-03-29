@@ -20,7 +20,7 @@ namespace H_P_II_Clase8_AccesoHardware_SO
         public Form1()
         {
             InitializeComponent();
-            ApplyStyles();
+          
         }
 
         public string ObtenerNumeroSerie()
@@ -101,6 +101,10 @@ namespace H_P_II_Clase8_AccesoHardware_SO
             RegistryKey key = Registry.CurrentUser.CreateSubKey(ruta);
             key.SetValue(clave, valor);
             key.Close();
+
+            // Verificar si la clave se creó correctamente
+            string valorLeido = LeerClaveRegistro(ruta, clave);
+            MessageBox.Show("Valor almacenado: " + valorLeido);
         }
 
         private string LeerClaveRegistro(string ruta, string clave)
@@ -111,11 +115,22 @@ namespace H_P_II_Clase8_AccesoHardware_SO
 
         private void EliminarClaveRegistro(string ruta, string clave)
         {
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(ruta, true);
-            if (key != null)
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(ruta, true))
             {
+                if (key == null)
+                {
+                    MessageBox.Show("La clave especificada no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (key.GetValue(clave) == null)
+                {
+                    MessageBox.Show("El valor dentro de la clave no existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 key.DeleteValue(clave);
-                key.Close();
+                MessageBox.Show("Clave eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -148,23 +163,6 @@ namespace H_P_II_Clase8_AccesoHardware_SO
             lblNumeroSerie.Text = ObtenerNumeroSerie();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            lblDiscos.Text= ObtenerCantidadDiscos().ToString();
-        }
-
-        private void btnProcesador_Click(object sender, EventArgs e)
-        {
-            lblProcesador.Text=ObtenerInformacionProcesador().ToString();
-            lblRam.Text = ObtenerInformacionRAM().ToString();
-            lblNic.Text= ObtenerTarjetasRed().ToString();  
-        }
-
-        private void btnMac_Click(object sender, EventArgs e)
-        {
-            lblMac.Text=ObtenerDireccionMAC();
-        }
-
         private void btnCrearKey_Click(object sender, EventArgs e)
         {
             CrearClaveRegistro("Software\\MiAplicacion", "ClavePrueba", "12345");
@@ -172,22 +170,21 @@ namespace H_P_II_Clase8_AccesoHardware_SO
 
         private void btnLeerKey_Click(object sender, EventArgs e)
         {
-            lblLeerClave.Text = LeerClaveRegistro("Software\\MiAplicacion", "ClavePrueba");
+            lblRegistroSistema.Text = "Clave Registro: " + LeerClaveRegistro("Software\\MiAplicacion", "ClavePrueba");
         }
 
         private void btnEliminarKey_Click(object sender, EventArgs e)
         {
             EliminarClaveRegistro("Software\\MiAplicacion", "ClavePrueba");
+            lblRegistroSistema.Text = "";
         }
 
         private void btnCrearProcesos_Click(object sender, EventArgs e)
         {
-            ltbProcesos.Items.Clear();
-            string[] procesos = ObtenerProcesosActivos();
-            for (int i = 0; i < procesos.Length; i++)
-            {
-                ltbProcesos.Items.Add(procesos[i]);
-            }
+               string[] procesos = ObtenerProcesosActivos();
+        ltbProcesos.Items.Clear();
+        ltbProcesos.Items.AddRange(procesos);
+        lblInfoProcesos.Text = "📌 Procesos Activos: " + procesos.Length;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -200,38 +197,43 @@ namespace H_P_II_Clase8_AccesoHardware_SO
             }
         }
 
-        private void ApplyStyles()
+       
+        private void Form1_Load(object sender, EventArgs e)
         {
-            // Configuración general del formulario
-            this.BackColor = Color.FromArgb(45, 45, 48); // Color de fondo oscuro
-            this.ForeColor = Color.White;
-            this.Text = "Gestión de Hardware y SO";
-            this.Font = new Font("Arial", 10, FontStyle.Regular);
+            tbcPrincipal.DrawMode = TabDrawMode.OwnerDrawFixed; // Permite dibujar manualmente las pestañas
+            tbcPrincipal.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
+        }
+        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            TabControl tabControl = sender as TabControl;
+            if (tabControl == null) return;
 
-            // Aplicar estilos a los botones
-            Button[] buttons = { btnNumeroSerie, btnDiscos, btnProcesador, btnMac, btnCrearKey, btnLeerKey, btnEliminarKey, btnCrearProcesos, btnMatarProceso };
-            foreach (var btn in buttons)
-            {
-                btn.BackColor = Color.FromArgb(28, 151, 234);
-                btn.ForeColor = Color.White;
-                btn.FlatStyle = FlatStyle.Flat;
-                btn.Font = new Font("Arial", 10, FontStyle.Bold);
-                btn.FlatAppearance.BorderSize = 0;
-            }
+            Graphics g = e.Graphics;
+            Brush textBrush;
 
-            // Aplicar estilos a etiquetas
-            Label[] labels = { lblNumeroSerie, lblDiscos, lblProcesador, lblRam, lblNic, lblMac, lblLeerClave };
-            foreach (var lbl in labels)
-            {
-                lbl.ForeColor = Color.LightGray;
-                lbl.Font = new Font("Arial", 10, FontStyle.Bold);
-            }
+            // Color de la pestaña activa y las inactivas
+            Color backColor = e.Index == tabControl.SelectedIndex ? Color.DarkBlue : Color.Gray;
+            textBrush = new SolidBrush(Color.White); // Color del texto
 
-            // Estilos para ListBox
-            ltbProcesos.BackColor = Color.FromArgb(60, 60, 60);
-            ltbProcesos.ForeColor = Color.White;
-            ltbProcesos.BorderStyle = BorderStyle.FixedSingle;
-            ltbProcesos.Font = new Font("Arial", 10, FontStyle.Regular);
+            // Dibujar el fondo de la pestaña
+            e.Graphics.FillRectangle(new SolidBrush(backColor), e.Bounds);
+
+            // Dibujar el texto centrado
+            string tabText = tabControl.TabPages[e.Index].Text;
+            StringFormat stringFlags = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+            g.DrawString(tabText, tabControl.Font, textBrush, e.Bounds, stringFlags);
+        }
+
+        private void btnObtenerInfoSistema_Click(object sender, EventArgs e)
+        {
+                lblInfoSistema.Text =
+          "📌 Información del Sistema:\n" +
+          "🔹 Número de Serie: " + ObtenerNumeroSerie() + "\n" +
+          "🔹 Cantidad de Discos: " + ObtenerCantidadDiscos() + "\n" +
+          "🔹 Procesador: " + ObtenerInformacionProcesador() + "\n" +
+          "🔹 RAM: " + ObtenerInformacionRAM() + "\n" +
+          "🔹 Tarjetas de Red: \n" + ObtenerTarjetasRed() + "\n" +
+          "🔹 Dirección MAC: " + ObtenerDireccionMAC();
         }
     }
 }
