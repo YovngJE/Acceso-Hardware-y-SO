@@ -104,7 +104,7 @@ namespace H_P_II_Clase8_AccesoHardware_SO
 
             // Verificar si la clave se creó correctamente
             string valorLeido = LeerClaveRegistro(ruta, clave);
-            MessageBox.Show("Valor almacenado: " + valorLeido);
+            MessageBox.Show("Clave creada");
         }
 
         private string LeerClaveRegistro(string ruta, string clave)
